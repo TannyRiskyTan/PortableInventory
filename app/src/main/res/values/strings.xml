@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">PortableInventory</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="prod_img_content_des">Product Image</string>
+    <string name="product_name_hint">Product Name</string>
+    <string name="product_name_instruction">What should we call this product?</string>
+    <string name="product_imgView_contentDes">Product Image</string>
+    <string name="product_id_instruction">Barcode Scanner is useful for this</string>
+    <string name="product_id_hint">Product ID</string>
+    <string name="expiry_date_hint">Expiry Date</string>
+    <string name="expiry_date_instruction">When will this product out of date?</string>
+    <string name="category_hint">Category</string>
+    <string name="category_instruction">What category is this product?</string>
+    <string name="recipe_hint">Recipe</string>
+    <string name="recipe_instruction">Does this product belong to any of your recipe?</string>
+    <string name="open_settings_button">Open Settings</string>
+    <string name="negative_button">Cancel</string>
+    <string name="using_camera">Add Picture Using Camera</string>
+    <string name="using_gallery">Add Picture Using Gallery</string>
+    <string name="setting_dialog_title">Permission Required</string>
+    <string name="setting_dialog_message">Please Allow The Application to Access Your Camera and Storage</string>
+    <string name="gallery_permission_title">External Storage Permission Required</string>
+    <string name="gallery_permission_message">Please Allow Our Application to Access Your Gallery</string>
+    <string name="img_saved_message">Image Saved Successfully</string>
+    <string name="pic_opt_bottom_sheet_frag">PictureOptionBottomSheetFragment</string>
+    <string name="img_content_desc">Product Image</string>
+    <string name="quantity_label">Quantity:</string>
+    <string name="expiry_date_label">Expiry Date:</string>
+    <string name="inc_btn_content_desc">Increase Quantity Button</string>
+    <string name="dec_btn_content_desc">Decrease Quantity Button</string>
+    <string name="category_label">Category:</string>
+    <string name="recipe_label">Recipe:</string>
+    <string name="scan_label">Take Photo</string>
+    <string name="scan_barcode_label">Scan</string>
+    <string name="add_product_label">Add Product</string>
 </resources>

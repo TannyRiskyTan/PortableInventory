@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#78909c</color>
+    <color name="primaryDark">#4b636e</color>
+    <color name="accent">#a7c0cd</color>
+    <color name="colorInputBackground">#F6F6F6</color>
+    <color name="colorLink">#2979FF</color>
+    <color name="colorToolbar">#FFEE58</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBodyTextColor">#51504F</color>
+    <color name="colorGray">#E4E4E4</color>
+    <color name="lightPurple">#C5CAE9</color>
+    <color name="darkPurple">#61678A</color>
 </resources>
