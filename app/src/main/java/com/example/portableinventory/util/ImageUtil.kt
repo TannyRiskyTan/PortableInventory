@@ -19,7 +19,6 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
-// TODO: implement Coroutine
 object ImageUtil {
 
     fun Fragment.takeImageFromCamera(resultCallback: ActivityResultLauncher<Uri?>, uri: Uri) {
