@@ -27,6 +27,7 @@
 
     <style name="TextInputEditText">
         <item name="maxLines">1</item>
+        <item name="android:background">@color/colorWhite</item>
     </style>
 
     <style name="ProductCardView">
