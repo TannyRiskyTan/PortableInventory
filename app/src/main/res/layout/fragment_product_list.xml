@@ -8,7 +8,6 @@
         android:id="@+id/recycler_view_prod_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorGray"
         tools:listitem="@layout/product_view" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
