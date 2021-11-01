@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
@@ -17,10 +18,12 @@ import com.example.portableinventory.R
 import com.example.portableinventory.databinding.FragmentAddProductBinding
 import com.example.portableinventory.presentation.viewmodel.ProductViewModel
 import com.example.portableinventory.util.DateUtil.createDatePicker
+import com.example.portableinventory.util.EMPTY_STRING
 import com.example.portableinventory.util.ImageUtil.copyImgFromUri
 import com.example.portableinventory.util.ImageUtil.createSaveUri
 import com.example.portableinventory.util.ImageUtil.takeImageFromCamera
 import com.example.portableinventory.util.ImageUtil.takeImageFromGallery
+import com.example.portableinventory.util.configureHomeButtonAsBack
 import com.example.portableinventory.util.toast
 import kotlinx.android.synthetic.main.fragment_add_product.view.*
 
@@ -31,7 +34,7 @@ class AddProductFragment : Fragment() {
     private val productViewModel: ProductViewModel by activityViewModels()
     private val pictureOptBottomSheet = PictureOptionBottomSheetFragment()
     private var imgTempUri: Uri? = null
-    private var imgFilename: String = ""
+    private var imgFilename: String = EMPTY_STRING
     private lateinit var cameraLauncher: ActivityResultLauncher<Uri?>
     private lateinit var galleryLauncher: ActivityResultLauncher<Intent>
 
@@ -73,6 +76,7 @@ class AddProductFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        this.configureHomeButtonAsBack(true)
         return DataBindingUtil.inflate<FragmentAddProductBinding>(
             inflater,
             R.layout.fragment_add_product,
@@ -149,4 +153,13 @@ class AddProductFragment : Fragment() {
         super.onDestroy()
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                productViewModel.isBackPressed()
+                requireActivity().onBackPressed()
+            }
+        }
+        return true
+    }
 }

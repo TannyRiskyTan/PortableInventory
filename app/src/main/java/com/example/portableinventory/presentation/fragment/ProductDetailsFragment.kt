@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.portableinventory.R
 import com.example.portableinventory.databinding.FragmentProductDetailsBinding
 import com.example.portableinventory.util.ImageUtil
+import com.example.portableinventory.util.configureHomeButtonAsBack
 
 class ProductDetailsFragment : Fragment() {
 
@@ -19,7 +20,8 @@ class ProductDetailsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+        this.configureHomeButtonAsBack(true)
         return DataBindingUtil.inflate<FragmentProductDetailsBinding>(
             inflater,
             R.layout.fragment_product_details,

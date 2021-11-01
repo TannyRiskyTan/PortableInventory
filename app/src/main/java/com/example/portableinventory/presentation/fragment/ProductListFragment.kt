@@ -12,6 +12,7 @@ import com.example.portableinventory.R
 import com.example.portableinventory.domain.model.Product
 import com.example.portableinventory.presentation.adapter.ProductListAdapter
 import com.example.portableinventory.presentation.viewmodel.ProductViewModel
+import com.example.portableinventory.util.configureHomeButtonAsBack
 import kotlinx.android.synthetic.main.fragment_product_list.*
 import kotlinx.android.synthetic.main.fragment_product_list.view.*
 import kotlinx.coroutines.flow.collectLatest
@@ -19,13 +20,13 @@ import kotlinx.coroutines.launch
 
 class ProductListFragment : Fragment(R.layout.fragment_product_list) {
 
-    //    private lateinit var navController: NavController
     private val productViewModel: ProductViewModel by activityViewModels()
     private val pagingAdapter = ProductListAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        this.configureHomeButtonAsBack(false)
         setRecyclerView()
         observeData()
         setFABListener(view)
