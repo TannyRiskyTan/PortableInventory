@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
@@ -13,10 +12,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.portableinventory.R
+import com.example.portableinventory.data.datasource.ProductDatabase
+import com.example.portableinventory.data.repository.ProductRepositoryImpl
 import com.example.portableinventory.databinding.FragmentAddProductBinding
-import com.example.portableinventory.presentation.viewmodel.ProductViewModel
+import com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModel
+import com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModelFactory
+import com.example.portableinventory.presentation.viewmodel.ProductListViewModel
 import com.example.portableinventory.util.DateUtil.createDatePicker
 import com.example.portableinventory.util.EMPTY_STRING
 import com.example.portableinventory.util.ImageUtil.copyImgFromUri
@@ -31,7 +35,7 @@ class AddProductFragment : Fragment() {
 
     private lateinit var binding: FragmentAddProductBinding
 
-    private val productViewModel: ProductViewModel by activityViewModels()
+    private lateinit var addAndEditProductViewModel: AddAndEditProductViewModel
     private val pictureOptBottomSheet = PictureOptionBottomSheetFragment()
     private var imgTempUri: Uri? = null
     private var imgFilename: String = EMPTY_STRING
@@ -68,6 +72,14 @@ class AddProductFragment : Fragment() {
                 requireContext().toast(getString(R.string.img_saved_message))
             }
         }
+
+        addAndEditProductViewModel =
+            ViewModelProvider(
+                this,
+                AddAndEditProductViewModelFactory(
+                    ProductRepositoryImpl(ProductDatabase(requireContext()))
+                )
+            ).get(AddAndEditProductViewModel::class.java)
 
     }
 
@@ -123,10 +135,10 @@ class AddProductFragment : Fragment() {
             pictureOptBottomSheet.dismiss()
         }
 
-        binding.viewmodel = productViewModel
+        binding.viewmodel = addAndEditProductViewModel
 
         binding.buttonAddProduct.setOnClickListener {
-            productViewModel.apply {
+            addAndEditProductViewModel.apply {
                 savingImgName = imgFilename
                 saveProduct()
             }
@@ -151,15 +163,5 @@ class AddProductFragment : Fragment() {
         cameraLauncher.unregister()
         galleryLauncher.unregister()
         super.onDestroy()
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                productViewModel.isBackPressed()
-                requireActivity().onBackPressed()
-            }
-        }
-        return true
     }
 }

@@ -11,12 +11,12 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.portableinventory.R
 import com.example.portableinventory.data.datasource.ProductDatabase
 import com.example.portableinventory.data.repository.ProductRepositoryImpl
-import com.example.portableinventory.presentation.viewmodel.ProductViewModel
-import com.example.portableinventory.presentation.viewmodel.ProductViewModelFactory
+import com.example.portableinventory.presentation.viewmodel.ProductListViewModel
+import com.example.portableinventory.presentation.viewmodel.ProductListViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var productViewModel: ProductViewModel
+    private lateinit var productListViewModel: ProductListViewModel
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +37,10 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        val viewModelFactory = ProductViewModelFactory(
+        val viewModelFactory = ProductListViewModelFactory(
             ProductRepositoryImpl(ProductDatabase(this))
         )
-        productViewModel = ViewModelProvider(this, viewModelFactory).get(ProductViewModel::class.java)
+        productListViewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
     }
 
     override fun onSupportNavigateUp(): Boolean {

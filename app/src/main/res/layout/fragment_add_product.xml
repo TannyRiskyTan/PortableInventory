@@ -9,7 +9,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.portableinventory.presentation.viewmodel.ProductViewModel" />
+            type="com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModel" />
     </data>
 
     <ScrollView style="@style/RootDimension">
@@ -32,9 +32,9 @@
                     android:id="@+id/image_view"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
-                    android:src="@drawable/ic_baseline_add_a_photo_24"
                     android:contentDescription="@string/product_imgView_contentDes"
-                    android:scaleType="fitXY" />
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_baseline_add_a_photo_24" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -96,6 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/product_id_hint"
+                    android:inputType="number"
                     android:text="@={viewmodel.id}" />
 
                 <TextView
