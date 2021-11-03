@@ -15,12 +15,12 @@ class ProductRepositoryImpl(
         dao.insert(product)
 
     override suspend fun update(product: Product) =
-        dao.insert(product)
+        dao.update(product)
 
     override fun getProductsPagingSource(): PagingSource<Int, Product> =
         dao.pagingSource()
 
-    override suspend fun deleteProduct(product: Product) =
+    override suspend fun delete(product: Product) =
         dao.deleteProduct(product)
 
 }

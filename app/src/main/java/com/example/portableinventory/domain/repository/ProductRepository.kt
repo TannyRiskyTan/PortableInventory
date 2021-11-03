@@ -7,9 +7,9 @@ interface ProductRepository {
 
     suspend fun insert(product: Product): Long
 
-    suspend fun update(product: Product): Long
+    suspend fun update(product: Product): Int
 
     fun getProductsPagingSource(): PagingSource<Int, Product>
 
-    suspend fun deleteProduct(product: Product)
+    suspend fun delete(product: Product)
 }
