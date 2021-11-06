@@ -12,6 +12,6 @@ class ProductListViewModelFactory(private val repo: ProductRepository) : ViewMod
 
 class AddAndEditProductViewModelFactory(private val repo: ProductRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return AddAndEditProductViewModel(repo) as T
+        return ProductViewModel(repo) as T
     }
 }

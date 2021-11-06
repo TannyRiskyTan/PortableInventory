@@ -9,7 +9,7 @@
 
         <variable
             name="viewmodel"
-            type="com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModel" />
+            type="com.example.portableinventory.presentation.viewmodel.ProductViewModel" />
     </data>
 
     <ScrollView style="@style/RootDimension">

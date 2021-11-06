@@ -9,7 +9,7 @@ import com.example.portableinventory.util.EMPTY_STRING
 import com.example.portableinventory.util.ZERO_STRING
 import kotlinx.coroutines.launch
 
-class AddAndEditProductViewModel(
+class ProductViewModel(
     private val repository: ProductRepository
 ) : ViewModel() {
 

@@ -11,16 +11,14 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.portableinventory.R
 import com.example.portableinventory.data.datasource.ProductDatabase
 import com.example.portableinventory.data.repository.ProductRepositoryImpl
 import com.example.portableinventory.databinding.FragmentAddProductBinding
-import com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModel
+import com.example.portableinventory.presentation.viewmodel.ProductViewModel
 import com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModelFactory
-import com.example.portableinventory.presentation.viewmodel.ProductListViewModel
 import com.example.portableinventory.util.DateUtil.createDatePicker
 import com.example.portableinventory.util.EMPTY_STRING
 import com.example.portableinventory.util.ImageUtil.copyImgFromUri
@@ -35,7 +33,7 @@ class AddProductFragment : Fragment() {
 
     private lateinit var binding: FragmentAddProductBinding
 
-    private lateinit var addAndEditProductViewModel: AddAndEditProductViewModel
+    private lateinit var addAndEditProductViewModel: ProductViewModel
     private val pictureOptBottomSheet = PictureOptionBottomSheetFragment()
     private var imgTempUri: Uri? = null
     private var imgFilename: String = EMPTY_STRING
@@ -79,7 +77,7 @@ class AddProductFragment : Fragment() {
                 AddAndEditProductViewModelFactory(
                     ProductRepositoryImpl(ProductDatabase(requireContext()))
                 )
-            ).get(AddAndEditProductViewModel::class.java)
+            ).get(ProductViewModel::class.java)
 
     }
 
