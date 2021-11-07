@@ -6,6 +6,7 @@ const val SETTINGS_REQUEST_CODE = 3
 const val MULTIPLE_REQUEST_CODE = 4
 const val EMPTY_STRING = ""
 const val ZERO_STRING = "0"
+const val UNKNOWN_EXCEPTION = "Unknown Exception"
 
 object DateFormat {
     const val MMM_dd_yyyy = "MMM dd yyyy"

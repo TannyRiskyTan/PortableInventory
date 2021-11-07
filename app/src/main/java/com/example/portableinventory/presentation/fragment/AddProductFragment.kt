@@ -17,6 +17,7 @@ import com.example.portableinventory.R
 import com.example.portableinventory.data.datasource.ProductDatabase
 import com.example.portableinventory.data.repository.ProductRepositoryImpl
 import com.example.portableinventory.databinding.FragmentAddProductBinding
+import com.example.portableinventory.domain.usecase.AddProductUseCaseImpl
 import com.example.portableinventory.presentation.viewmodel.ProductViewModel
 import com.example.portableinventory.presentation.viewmodel.AddAndEditProductViewModelFactory
 import com.example.portableinventory.util.DateUtil.createDatePicker
@@ -75,7 +76,7 @@ class AddProductFragment : Fragment() {
             ViewModelProvider(
                 this,
                 AddAndEditProductViewModelFactory(
-                    ProductRepositoryImpl(ProductDatabase(requireContext()))
+                    AddProductUseCaseImpl(ProductRepositoryImpl(ProductDatabase(requireContext())))
                 )
             ).get(ProductViewModel::class.java)
 

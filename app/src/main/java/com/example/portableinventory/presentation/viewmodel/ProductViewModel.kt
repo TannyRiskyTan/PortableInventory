@@ -4,13 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.portableinventory.domain.model.Product
-import com.example.portableinventory.domain.repository.ProductRepository
+import com.example.portableinventory.domain.usecase.AddProductUseCase
 import com.example.portableinventory.util.EMPTY_STRING
 import com.example.portableinventory.util.ZERO_STRING
 import kotlinx.coroutines.launch
 
 class ProductViewModel(
-    private val repository: ProductRepository
+    private val addProductUseCase: AddProductUseCase
 ) : ViewModel() {
 
     val id = MutableLiveData<String>()
@@ -27,7 +27,7 @@ class ProductViewModel(
 
     fun saveProduct() {
         viewModelScope.launch {
-            repository.insert(
+            addProductUseCase(
                 Product(
                     id = id.getFieldValue()?.toLong(),
                     name = name.getFieldValue(),
