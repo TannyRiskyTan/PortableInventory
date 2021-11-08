@@ -5,10 +5,10 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.example.portableinventory.domain.repository.ProductRepository
+import com.example.portableinventory.domain.usecase.GetProductListUseCase
 
 class ProductListViewModel(
-    private val repository: ProductRepository
+    private val getProductListUseCase: GetProductListUseCase
 ) : ViewModel() {
 
     val flow = Pager(
@@ -16,7 +16,7 @@ class ProductListViewModel(
         // PagingConfig, such as prefetchDistance.
         PagingConfig(pageSize = 6)
     ) {
-        repository.getProductsPagingSource()
+        getProductListUseCase.invoke()
     }.flow.cachedIn(viewModelScope)
 
 }

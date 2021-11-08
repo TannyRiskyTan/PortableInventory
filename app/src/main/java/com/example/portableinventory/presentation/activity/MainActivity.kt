@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.portableinventory.R
 import com.example.portableinventory.data.datasource.ProductDatabase
 import com.example.portableinventory.data.repository.ProductRepositoryImpl
+import com.example.portableinventory.domain.usecase.GetProductListUseCaseImpl
 import com.example.portableinventory.presentation.viewmodel.ProductListViewModel
 import com.example.portableinventory.presentation.viewmodel.ProductListViewModelFactory
 
@@ -38,9 +39,12 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val viewModelFactory = ProductListViewModelFactory(
-            ProductRepositoryImpl(ProductDatabase(this))
+            GetProductListUseCaseImpl(
+                ProductRepositoryImpl(ProductDatabase(this))
+            )
         )
-        productListViewModel = ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
+        productListViewModel =
+            ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
     }
 
     override fun onSupportNavigateUp(): Boolean {

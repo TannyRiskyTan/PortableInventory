@@ -2,12 +2,12 @@ package com.example.portableinventory.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.portableinventory.domain.repository.ProductRepository
 import com.example.portableinventory.domain.usecase.AddProductUseCase
+import com.example.portableinventory.domain.usecase.GetProductListUseCase
 
-class ProductListViewModelFactory(private val repo: ProductRepository) : ViewModelProvider.Factory {
+class ProductListViewModelFactory(private val getProductListUseCase: GetProductListUseCase) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ProductListViewModel(repo) as T
+        return ProductListViewModel(getProductListUseCase) as T
     }
 }
 
