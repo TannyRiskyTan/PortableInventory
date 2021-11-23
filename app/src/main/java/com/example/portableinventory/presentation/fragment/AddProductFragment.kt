@@ -70,14 +70,6 @@ class AddProductFragment : Fragment() {
             }
         }
 
-//        addAndEditProductViewModel =
-//            ViewModelProvider(
-//                this,
-//                AddAndEditProductViewModelFactory(
-//                    AddProductUseCaseImpl(ProductRepositoryImpl(ProductDatabase(requireContext())))
-//                )
-//            ).get(ProductViewModel::class.java)
-
     }
 
     override fun onCreateView(
