@@ -4,9 +4,9 @@ import android.util.Log
 import com.example.portableinventory.domain.model.Product
 import com.example.portableinventory.domain.repository.ProductRepository
 import com.example.portableinventory.util.UNKNOWN_EXCEPTION
-import java.lang.Exception
+import javax.inject.Inject
 
-class AddProductUseCaseImpl(
+class AddProductUseCaseImpl @Inject constructor(
     private val repository: ProductRepository
 ) : AddProductUseCase {
 

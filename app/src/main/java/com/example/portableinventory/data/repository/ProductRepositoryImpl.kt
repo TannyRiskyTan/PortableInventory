@@ -1,15 +1,13 @@
 package com.example.portableinventory.data.repository
 
 import androidx.paging.PagingSource
-import com.example.portableinventory.data.datasource.ProductDatabase
+import com.example.portableinventory.data.datasource.ProductDao
 import com.example.portableinventory.domain.model.Product
 import com.example.portableinventory.domain.repository.ProductRepository
 
 class ProductRepositoryImpl(
-    db: ProductDatabase
-): ProductRepository {
-
-    private val dao = db.getProductDao()
+    private val dao: ProductDao
+) : ProductRepository {
 
     override suspend fun insert(product: Product) =
         dao.insert(product)

@@ -6,8 +6,11 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.example.portableinventory.domain.usecase.GetProductListUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ProductListViewModel(
+@HiltViewModel
+class ProductListViewModel @Inject constructor(
     private val getProductListUseCase: GetProductListUseCase
 ) : ViewModel() {
 

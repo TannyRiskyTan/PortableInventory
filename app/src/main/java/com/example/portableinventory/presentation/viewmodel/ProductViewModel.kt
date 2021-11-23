@@ -7,9 +7,12 @@ import com.example.portableinventory.domain.model.Product
 import com.example.portableinventory.domain.usecase.AddProductUseCase
 import com.example.portableinventory.util.EMPTY_STRING
 import com.example.portableinventory.util.ZERO_STRING
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductViewModel(
+@HiltViewModel
+class ProductViewModel @Inject constructor(
     private val addProductUseCase: AddProductUseCase
 ) : ViewModel() {
 

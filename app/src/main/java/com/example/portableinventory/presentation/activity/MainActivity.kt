@@ -1,23 +1,18 @@
 package com.example.portableinventory.presentation.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.portableinventory.R
-import com.example.portableinventory.data.datasource.ProductDatabase
-import com.example.portableinventory.data.repository.ProductRepositoryImpl
-import com.example.portableinventory.domain.usecase.GetProductListUseCaseImpl
-import com.example.portableinventory.presentation.viewmodel.ProductListViewModel
-import com.example.portableinventory.presentation.viewmodel.ProductListViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var productListViewModel: ProductListViewModel
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,13 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        val viewModelFactory = ProductListViewModelFactory(
-            GetProductListUseCaseImpl(
-                ProductRepositoryImpl(ProductDatabase(this))
-            )
-        )
-        productListViewModel =
-            ViewModelProvider(this, viewModelFactory).get(ProductListViewModel::class.java)
     }
 
     override fun onSupportNavigateUp(): Boolean {
